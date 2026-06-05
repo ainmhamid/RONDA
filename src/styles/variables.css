@@ -1,0 +1,49 @@
+:root {
+  /* Color Palette */
+  --color-white: #ffffff;
+  --color-primary: #0f9e9a;
+  --color-primary-light: #25a4a0;
+  --color-brown-dark: #372018;
+  --color-brown-light: #f5eae4;
+  --color-grey-light: #f5f6f6;
+  --color-grey-medium: #e0e5e5;
+  --color-grey-dark: #707a7a;
+  
+  /* Semantic Colors - Light Mode */
+  --bg-color-main: #fcfbfa;
+  --bg-color-card: #ffffff;
+  --bg-color-nav: #372018;
+  --text-color-main: #372018;
+  --text-color-muted: #705850;
+  --text-color-inverse: #ffffff;
+  --border-color: #f2ede9;
+  
+  /* Font Families */
+  --font-heading: 'Intro Rust', 'Outfit', 'Nunito', sans-serif;
+  --font-body: 'Nunito', sans-serif;
+
+  /* Card Shadow & Radius */
+  --shadow-sm: 0 2px 8px rgba(55, 32, 24, 0.05);
+  --shadow-md: 0 8px 24px rgba(55, 32, 24, 0.08);
+  --shadow-lg: 0 16px 36px rgba(55, 32, 24, 0.12);
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+  --radius-full: 9999px;
+  --transition-speed: 0.3s;
+}
+
+[data-theme="dark"] {
+  /* Semantic Colors - Dark Mode */
+  --bg-color-main: #181210;
+  --bg-color-card: #281e1b;
+  --bg-color-nav: #181210;
+  --text-color-main: #ffffff;
+  --text-color-muted: #d0c5c1;
+  --text-color-inverse: #372018;
+  --border-color: #3b2b27;
+  
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.4);
+}

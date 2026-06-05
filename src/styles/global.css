@@ -1,0 +1,174 @@
+@import './variables.css';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: var(--bg-color-main);
+  color: var(--text-color-main);
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+  font-size: 16px;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* App container constrained for mobile aspect ratio to keep it premium and identical to screenshots */
+#root {
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background-color: var(--bg-color-main);
+  position: relative;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: 0.5px;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.app-content {
+  flex: 1;
+  padding-bottom: 90px; /* offset for bottom nav */
+  overflow-y: auto;
+}
+
+/* Smooth micro-interactions */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  padding: 12px 24px;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color var(--transition-speed), transform 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primary:active {
+  transform: scale(0.97);
+  background-color: var(--color-primary-light);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+}
+
+.btn-secondary:active {
+  background-color: rgba(15, 158, 154, 0.1);
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+[data-theme="dark"] .glass {
+  background: rgba(40, 30, 27, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: var(--radius-full);
+}
+
+/* Shimmer Loader */
+.shimmer {
+  background: linear-gradient(90deg, var(--border-color) 25%, var(--bg-color-main) 50%, var(--border-color) 75%);
+  background-size: 200% 100%;
+  animation: loading-shimmer 1.5s infinite;
+}
+
+@keyframes loading-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Global side-by-side language pill selector */
+.lang-pill {
+  display: inline-flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: var(--radius-full);
+  padding: 3px;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(255,255,255,0.15);
+  transition: background-color var(--transition-speed);
+}
+
+.lang-pill span {
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--color-white);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-speed);
+}
+
+.lang-pill span.active {
+  background-color: var(--color-white);
+  color: var(--color-brown-dark);
+}
+
+/* Dark theme language pill for light headers */
+.lang-pill.dark {
+  background-color: var(--color-brown-dark);
+  border: 1px solid rgba(55, 32, 24, 0.15);
+}
+
+.lang-pill.dark span {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.lang-pill.dark span.active {
+  background-color: var(--color-white);
+  color: var(--color-brown-dark);
+}
+
+/* Color filter to convert white images to primary cyan (#0f9e9a) */
+.cyan-filter {
+  filter: invert(47%) sepia(93%) saturate(1251%) hue-rotate(136deg) brightness(92%) contrast(89%) !important;
+}
+

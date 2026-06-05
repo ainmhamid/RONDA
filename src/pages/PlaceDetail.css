@@ -1,0 +1,417 @@
+.place-detail-page {
+  background-color: var(--bg-color-main);
+  min-height: 100vh;
+}
+
+/* Detail Hero Header */
+.detail-hero-section {
+  position: relative;
+  height: 280px;
+  width: 100%;
+}
+
+.detail-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detail-back-arrow-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-full);
+  background-color: rgba(255,255,255,0.85);
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--color-brown-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  z-index: 20;
+}
+
+.detail-top-logo {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+}
+
+.detail-top-logo-img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+.detail-lang-pill {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-weight: 800;
+  font-size: 11px;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  color: var(--color-primary);
+  z-index: 20;
+}
+
+.detail-like-btn {
+  position: absolute;
+  bottom: -22px;
+  right: 25px;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-white);
+  border: 1px solid rgba(55, 32, 24, 0.15);
+  box-shadow: 0 4px 12px rgba(55, 32, 24, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 25;
+  transition: transform 0.15s ease, background-color var(--transition-speed), border-color var(--transition-speed);
+}
+
+.detail-like-btn:not(.liked) .detail-heart-img {
+  filter: contrast(1.4) drop-shadow(0 0 0.5px rgba(55, 32, 24, 0.6));
+}
+
+[data-theme="dark"] .detail-like-btn {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+[data-theme="dark"] .detail-like-btn:not(.liked) .detail-heart-img {
+  filter: invert(0.9) brightness(1.5);
+}
+
+/* Light mode liked detail button shadow */
+.detail-like-btn.liked {
+  border-color: rgba(15, 158, 154, 0.3);
+  box-shadow: 0 4px 14px rgba(15, 158, 154, 0.45);
+}
+
+/* Dark mode liked detail button shadow override */
+[data-theme="dark"] .detail-like-btn.liked {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  border: none;
+}
+
+.detail-like-btn:active {
+  transform: scale(0.9);
+}
+
+.detail-heart-img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+/* Detail Body Containers with Left/Right arrows overlay */
+.detail-body-container {
+  position: relative;
+  background-color: var(--bg-color-main);
+  border-top-left-radius: var(--radius-lg);
+  border-top-right-radius: var(--radius-lg);
+  margin-top: -15px;
+  padding: 30px 20px 20px 20px;
+  z-index: 10;
+}
+
+/* Nav arrows on edges of content screen */
+.nav-arrow {
+  position: absolute;
+  top: 220px;
+  width: 40px;
+  height: 40px;
+  background-color: var(--bg-color-card);
+  border: 1px solid var(--border-color);
+  color: var(--color-primary);
+  border-radius: var(--radius-full);
+  font-size: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  z-index: 30;
+  transition: all var(--transition-speed);
+}
+
+.nav-arrow:active {
+  transform: scale(0.9);
+}
+
+.nav-arrow.prev {
+  left: 6px;
+}
+
+.nav-arrow.next {
+  right: 6px;
+}
+
+.detail-content-wrapper {
+  width: 100%;
+}
+
+.detail-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-color-main);
+  margin-bottom: 10px;
+  line-height: 1.4;
+  padding-right: 40px; /* offset for saved heart icon height area */
+}
+
+.detail-rating-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.rating-value {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-color-main);
+  margin-right: 15px;
+}
+
+.detail-location-pill {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--color-primary);
+  background-color: rgba(15, 158, 154, 0.1);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+}
+
+/* Tabs Bar */
+.detail-tabs {
+  display: flex;
+  border-bottom: 2px solid var(--border-color);
+  margin-bottom: 20px;
+}
+
+.detail-tab-btn {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-color-muted);
+  cursor: pointer;
+  transition: all var(--transition-speed);
+  position: relative;
+}
+
+.detail-tab-btn.active {
+  color: var(--color-primary);
+}
+
+.detail-tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 15%;
+  right: 15%;
+  height: 3px;
+  background-color: var(--color-primary);
+  border-radius: var(--radius-full);
+}
+
+/* Tab Content Areas */
+.tab-content-area {
+  min-height: 250px;
+}
+
+.place-description {
+  font-size: 13.5px;
+  color: var(--text-color-muted);
+  line-height: 1.7;
+}
+
+/* Details boxes (Teal style boxes as mockup) */
+.detail-box.teal-box {
+  background-color: #9cd4d2; /* customized beautiful teal style box matching mockup */
+  color: var(--color-brown-dark);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  margin-bottom: 15px;
+  box-shadow: var(--shadow-sm);
+}
+
+.detail-box.teal-box h4 {
+  font-size: 14px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.detail-box.teal-box ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.detail-box.teal-box li {
+  font-size: 12.5px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  position: relative;
+  padding-left: 15px;
+}
+
+.detail-box.teal-box li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Reviews List Styles */
+.reviews-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.review-card {
+  background-color: var(--bg-color-card);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.reviewer-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-full);
+  margin-right: 12px;
+  object-fit: cover;
+  border: 1px solid var(--border-color);
+}
+
+.reviewer-info {
+  flex: 1;
+}
+
+.reviewer-name {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--text-color-main);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.local-guide-badge {
+  font-size: 9px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+}
+
+.review-time {
+  font-size: 10px;
+  color: var(--text-color-muted);
+}
+
+.review-rating-stars {
+  margin-left: auto;
+}
+
+.review-text {
+  font-size: 12.5px;
+  color: var(--text-color-muted);
+  line-height: 1.5;
+}
+
+.review-images-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.review-thumb {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* Submit Review Form styling */
+.add-review-form {
+  background-color: var(--bg-color-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.add-review-form h4 {
+  font-size: 13.5px;
+  margin-bottom: 12px;
+  color: var(--text-color-main);
+}
+
+.rating-select-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.add-review-form textarea {
+  width: 100%;
+  height: 80px;
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-color-main);
+  color: var(--text-color-main);
+  resize: none;
+  font-size: 13px;
+  outline: none;
+  margin-bottom: 12px;
+}
+
+.add-review-form textarea:focus {
+  border-color: var(--color-primary);
+}
+
+.no-reviews-text, .signin-notice {
+  text-align: center;
+  color: var(--text-color-muted);
+  font-size: 13px;
+  padding: 20px 0;
+}

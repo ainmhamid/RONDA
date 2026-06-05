@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">RONDA</string>
+    <string name="title_activity_main">RONDA</string>
+    <string name="package_name">com.ronda.travelapp</string>
+    <string name="custom_url_scheme">com.ronda.travelapp</string>
+</resources>
